@@ -1,0 +1,217 @@
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+   position: fixed; /* Keep the nav fixed at the top */
+  top: 0; /* Position it at the top of the viewport */
+  width: 100%; /* Make it full width */
+  z-index: 1; /* Ensure it's above other content */
+}
+
+.nav-left img {
+  max-height: 20%; /* Adjust the height as needed */
+  max-width:20%;
+}
+
+.nav-right button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  font-size: 17px;
+}
+
+.nav-right button:hover {
+  background-color: rgb(129, 123, 123);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+
+  
+  .box {
+  background-color: #000000;
+  height: 650px;
+  width: 600px;
+  padding: 70px;
+  border-radius: 15px;
+  position: absolute; /* Corrected position property */
+  top: 60%; /* Move the top edge to the vertical center */
+  left: 50%; /* Move the left edge to the horizontal center */
+  transform: translate(-50%, -50%); /* Center the div */
+}
+
+  
+/*for the scanning page*/
+  /* Add your existing CSS code here */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+   position: fixed; /* Keep the nav fixed at the top */
+  top: 0; /* Position it at the top of the viewport */
+  width: 100%; /* Make it full width */
+  z-index: 1; /* Ensure it's above other content */
+}
+
+.nav-left img {
+  max-height: 20%; /* Adjust the height as needed */
+  max-width:20%;
+}
+
+.nav-right button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  font-size: 17px;
+}
+
+.nav-right button:hover {
+  background-color: rgb(129, 123, 123);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+
+  
+  .box {
+  background-color: #000000;
+  height: 550px;
+  width: 600px;
+  padding: 70px;
+  border-radius: 15px;
+  position: absolute; /* Corrected position property */
+  top: 60%; /* Move the top edge to the vertical center */
+  left: 50%; /* Move the left edge to the horizontal center */
+  transform: translate(-50%, -50%); /* Center the div */
+}
+
+  
+  h1 {
+    color: aliceblue;
+    padding-bottom: 30px;
+  }
+  
+  .name-input {
+    padding-left: 7px;
+    border-radius: 5px;
+    height: 55px;
+    width: 100%;
+    background: none;
+    border: none;
+    border: 1px solid #333639;
+    font-size: 17px;
+    outline: none;
+    color: white;
+    margin-bottom: 28px;
+  }
+  
+  .ext {
+    margin-bottom: 15px;
+  }
+  
+  input:focus {
+    outline: 1px solid #1fa5ff;
+  }
+  
+  .p-div {
+    display: flex;
+    justify-content: right;
+  }
+  
+  .p-div a {
+    color: #1a89d4;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  
+  .p-div a:hover {
+    text-decoration: underline;
+  }
+  .dob-info h4 {
+    color: #dbddde;
+    padding-top: 30px;
+    padding-bottom: 8px;
+  }
+  
+  .dob-info p {
+    font-size: 15px;
+    color: #5e6266;
+    padding-bottom: 15px;
+  }
+  
+  .dob-menus {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .dob-menus p {
+    color: #52565a;
+  }
+  
+  .month-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8px;
+    height: 60px;
+    width: 220px;
+    border: 1px solid #333639;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .day-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8px;
+    height: 60px;
+    width: 90px;
+    border: 1px solid #333639;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .year-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8px;
+    height: 60px;
+    width: 120px;
+    border: 1px solid #333639;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .btn {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 100px;
+    height: 50px;
+    width: 100%;
+    background: none;
+    border: none;
+    background-color: #eff3f4;
+    border-radius: 1000px;
+    cursor: pointer;
+    position:relative;
+    bottom:60px;
+  }
+  
+  .btn:hover {
+    background-color: #d7dbdc;
+    transition: 100ms;
+  }
+  

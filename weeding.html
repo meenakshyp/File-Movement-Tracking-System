@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weeding Room</title>
+    <link rel="icon" type="image/x-icon" href="High-Court-of-Kerala-Logo-fotor-bg-remover-20230926133216.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="style2.css" rel="stylesheet">
+    <style>
+        .custom-hover-class:hover {
+            background-color: #604536; /* Your custom color for hovering (e.g., orange) */
+            color: #FFFFFF; /* Text color for hovering */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-4">
+    <header class="flex justify-between items-center mb-8">
+        <div class="flex items-center">
+            <img src="highcourt.png" alt="Header Image" class="mr-2" >
+        </div>
+        <button style=" padding: 5px; border-radius:0.2rem;margin-left: -150px; color: white; text-decoration: none; background-color: red; border: none; cursor: pointer;">
+            <a href="../index.php" style="color: inherit; text-decoration: none;">Logout</a>
+    </header>
+        <!-- Sidebar -->
+        <div class="flex flex-col"> <!-- Use flex-col to make the sidebar a column -->
+            
+
+            <div class="text-black"> <!-- Use flex-1 to make it expand to fill available space -->        
+                <ul>
+                    <li class="mb-2">
+                        <button onclick="toggleDefectedFiles()" class="flex items-center custom-hover-class px-4 py-2 rounded-lg transition duration-300 text-2xl font-bold">
+                            <i class="fas fa-exclamation-triangle mr-2"></i> Defected Files
+                        </button>
+                    </li>
+                </ul></div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <h1 class="text-3xl font-bold mb-6 text-center">Weeding Room</h1>
+                <form id="recordForm" class="bg-white rounded-lg p-8 shadow-md" method="POST" action="weeding.php">
+
+
+                <!-- Inputs Section -->
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="batchNumber" class="block mb-2 font-bold text-gray-700">Batch Number</label>
+                    <input type="text" id="batchNumber" name="batchNumber" placeholder="Enter the Batch Number " class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="count" class="block mb-2 font-bold text-gray-700">Count (Number of Files)</label>
+                <input type="number" id="count" name="count" placeholder="Select the Number of Files" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required>    
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="fileNumber" class="block font-semibold text-gray-700">File No</label>
+                            <input type="text" id="fileNumber" name="fileNumber" placeholder="Enter the File number" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add File Button -->
+                <div class="flex items-center mb-6" style="margin-top: 0.7cm;">
+                    <button type="button" onclick="addFileInput()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" style="background-color: #966144;">Add File</button>
+                </div>
+                <div id="fileList" class="flex flex-col gap-4"></div>
+
+                <!-- Prepared By Input -->
+
+                <!-- Defected Files Section -->
+                <div id="defectedFilesSection" style="display:none">
+                    <h2 class="text-2xl font-semibold mb-4">Defected Files</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="defCount" class="block font-semibold text-gray-700">Count</label>
+                            <input type="number" id="defCount" name="defCount" placeholder="Select the Number of Files" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="defFileNumber" class="block font-semibold text-gray-700">File No</label>
+                            <input type="text" id="defFileNumber" name="defFileNumber" placeholder="Enter the File number" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        
+                        <div>
+                            <label for="defReason" class="block font-semibold text-gray-700">Reason</label>
+                            <input type="text" id="defReason" name="defReason" placeholder="Enter the Reason for Defect" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                        </div>
+                    </div>
+                </div>
+                 
+                <!-- Status Dropdown and Comment Textfield -->
+                <div id="pendingSection" style="display:none" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="status" class="block font-semibold text-gray-700">Status</label>
+                        <select id="status" name="status" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                            <option disabled selected value="">Select Status</option>
+                          
+                            <option value="scanning">Scanning</option>
+                            <option value="defected">Defected</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="comment" class="block font-semibold text-gray-700">Comment</label>
+                        <textarea id="comment" name="comment" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700" style=" background-color: black" onmouseover="this.style.backgroundColor='#604536'"
+                     onmouseout="this.style.backgroundColor='black'">Submit</button>
+                </div>
+            
+        </div>
+    </div>
+</form>
+    <script>
+        function toggleDefectedFiles() {
+            var element = document.getElementById("defectedFilesSection");
+            element.style.display = (element.style.display == "none") ? "block" : "none";
+        }
+
+        function addFileInput() {
+            var inputContainer = document.createElement('div');
+            inputContainer.classList.add('flex', 'space-x-4');
+
+            var fileInput = document.createElement('input');
+            fileInput.type = 'text';
+            fileInput.name = 'additionalFileNumbers[]';
+            fileInput.classList.add('w-1/4', 'px-4', 'py-2', 'border', 'rounded', 'focus:outline-none', 'focus:border-blue-500');
+
+            var removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.classList.add('bg-gray-600', 'text-white', 'text-md', 'p-2', 'rounded-full', 'hover:bg-gray-700');
+            removeButton.innerText = 'Remove';
+            removeButton.addEventListener('click', function () {
+                inputContainer.remove();
+            });
+
+            inputContainer.appendChild(fileInput);
+            inputContainer.appendChild(removeButton);
+
+            var fileList = document.getElementById('fileList');
+            fileList.appendChild(inputContainer);
+        }
+        function addDefFileInput() {
+            var inputContainer = document.createElement('div');
+            inputContainer.classList.add('flex', 'space-x-4');
+
+            var fileInput = document.createElement('input');
+            fileInput.type = 'text';
+            fileInput.name = 'additionalDefFileNumbers[]';
+            fileInput.classList.add('w-1/4', 'px-4', 'py-2', 'border', 'rounded', 'focus:outline-none', 'focus:border-blue-500');
+
+            var removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.classList.add('bg-red-400', 'text-white', 'text-md', 'p-2', 'rounded-full', 'hover:bg-red-700');
+            removeButton.innerText = 'Remove';
+            removeButton.addEventListener('click', function () {
+                inputContainer.remove();
+            });
+
+            inputContainer.appendChild(fileInput);
+            inputContainer.appendChild(removeButton);
+
+            var fileList = document.getElementById('fileList');
+            fileList.appendChild(inputContainer);
+        }
+    </script>
+</body>
+
+</html>
